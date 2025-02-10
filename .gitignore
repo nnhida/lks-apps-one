@@ -1,3 +1,7 @@
+./api.sh
+./client.sh
+./exam.sh
+
 # Logs
 logs
 tmp

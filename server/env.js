@@ -17,6 +17,7 @@ const env = {
     aws: {
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        token: process.env.TOKEN,
         Bucket: process.env.AWS_BUCKET_NAME
     },
     sequelize: {
