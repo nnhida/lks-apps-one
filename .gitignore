@@ -1,6 +1,6 @@
-./api.sh
-./client.sh
-./exam.sh
+api.sh
+client.sh
+exam.sh
 
 # Logs
 logs
