@@ -1,21 +1,20 @@
-const mongoose  = require('mongoose');
-const env       = require('../env');
-const conn      = mongoose.connection;
+const mongoose = require('mongoose');
+const env = require('../env');
 
-const mongoConn = mongoose.connect(`mongodb://${env.mongoose.host}:${env.mongoose.port}/${env.mongoose.database}`, {
-    auth: { "authSource": "admin" },
-    user: env.mongoose.username,
-    pass: env.mongoose.password,
+const clusterUrl = `mongodb+srv://${env.mongoose.username}:${env.mongoose.password}@${env.mongoose.host}/${env.mongoose.database}?retryWrites=true&w=majority`;
+
+const mongoConn = mongoose.connect(clusterUrl, {
     useNewUrlParser: true,
-    useUnifiedTopology: true, 
-    useCreateIndex: true,
-    useFindAndModify: false,
-    autoIndex: true
-}).then(() => {
-    return true
-}).catch((e) => {
-    console.log(e)
-    return false
+    useUnifiedTopology: true,
+    autoIndex: true, // Keeps automatic index creation
 })
+.then(() => {
+    console.log('✅ MongoDB Atlas connected successfully');
+    return true;
+})
+.catch((e) => {
+    console.error('❌ MongoDB connection error:', e);
+    return false;
+});
 
 module.exports = mongoConn;

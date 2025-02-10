@@ -31,8 +31,7 @@ const env = {
         database: process.env.MONGO_DB,
         username: process.env.MONGO_USERNAME,
         password: process.env.MONGO_PASSWORD,
-        host: process.env.MONGO_HOST,
-        port: process.env.MONGO_PORT
+        host: process.env.MONGO_HOST
     },
     redis: {
         host: process.env.REDIS_HOST,
