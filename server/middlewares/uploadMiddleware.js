@@ -64,7 +64,7 @@ const filesUploadS3 = (req, res, next) => {
     const s3 = new AWS.S3({
         accessKeyId: env.aws.accessKeyId,
         secretAccessKey: env.aws.secretAccessKey,
-        token: env.aws.token
+        sessionToken: env.aws.sessionToken
     })
 
     const storageS3 = multerS3({
